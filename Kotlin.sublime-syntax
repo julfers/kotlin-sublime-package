@@ -1,6 +1,8 @@
 %YAML 1.2
 ---
 # http://www.sublimetext.com/docs/3/syntax.html
+#
+# Started from a .tmLanguage forked from the Kotlin package
 name: Kotlin
 file_extensions:
   - kt
@@ -13,15 +15,17 @@ contexts:
       captures:
         1: keyword.other.kotlin
         2: entity.name.package.kotlin
+    - match: \b(companion|inner)\b
+      scope: invalid.illegal
     - include: imports
     - include: statements
   classes:
-    - match: (?<!::)(?=\b(?:companion|class|object|interface)\b)
+    - match: (?<!::)(?=\b(?:companion|inner|class|object|interface)\b)
       push:
         - match: '(?=$|\})'
           pop: true
         - include: comments
-        - match: \b(companion\s*)?(class|object|interface)\b
+        - match: \b(companion\s*|inner\s*)?(class|object|interface)\b
           captures:
             1: storage.modifier.kotlin
             2: storage.modifier.kotlin
