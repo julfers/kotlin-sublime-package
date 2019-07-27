@@ -25,10 +25,10 @@ contexts:
         - match: '(?=$|\})'
           pop: true
         - include: comments
-        - match: \b(companion\s*|inner\s*)?(class|object|interface)\b
+        - match: \b(?:(companion|inner)\s+)?(class|object|interface)\b
           captures:
             1: storage.modifier.kotlin
-            2: storage.modifier.kotlin
+            2: storage.type.class.kotlin
           push:
             - match: '(?=<|\{|\(|:|$)'
               pop: true

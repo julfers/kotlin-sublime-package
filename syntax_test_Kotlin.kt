@@ -4,24 +4,24 @@ package com.example
 //      ^ entity.name.package.kotlin
 
 class Outer {
-// <- storage.modifier.kotlin
+// <- storage.type.class.kotlin
 //    ^ entity.name.type.class.kotlin
   inner class Inner {}
   // <- storage.modifier.kotlin
-  //    ^ storage.modifier.kotlin
+  //    ^ storage.type.class.kotlin
   //          ^ entity.name.type.class.kotlin
   companion class Companion {}
   // <- storage.modifier.kotlin
-  //        ^ storage.modifier.kotlin
+  //        ^ storage.type.class.kotlin
   //              ^ entity.name.type.class.kotlin
 }
 
 companion class Companion {}
 // <- invalid.illegal
-//        ^ storage.modifier.kotlin
+//        ^ storage.type.class.kotlin
 //              ^ entity.name.type.class.kotlin
 
 inner class OutsideInner {}
 // <- invalid.illegal
-//    ^ storage.modifier.kotlin
+//    ^ storage.type.class.kotlin
 //          ^ entity.name.type.class.kotlin
